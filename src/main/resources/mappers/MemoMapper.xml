@@ -11,11 +11,21 @@
     <select id="selMemoList">
         SELECT id, title, content
         FROM memo
-        ORDER BY id DESC;
+        ORDER BY id DESC
     </select>
     <select id="selMemo">
         SELECT title, content, created_at AS createdAt
         FROM memo
-        WHERE id = #{id};
+        WHERE id = #{id}
     </select>
+    <update id="updMemo">
+        UPDATE memo
+        SET title = #{title}
+            , content = #{content}
+        WHERE id = #{id}
+    </update>
+    <delete id="delMemo">
+        DELETE FROM memo
+        WHERE id = #{id}
+    </delete>
 </mapper>
